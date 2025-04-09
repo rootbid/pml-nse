@@ -1,0 +1,18 @@
+GMM Market Regime Mapping:
+Cluster 0: Transition/Rotation
+Cluster 1: Strong Bull
+Cluster 2: Crisis/Bear
+
+Cluster Centers:
+         volatility_20d  close_to_sma_50  close_to_sma_200  sma_20_50_ratio  sma_50_200_ratio     rsi_14  bb_width  bb_position  trend_50d  volume_ma_ratio   roc_20d
+cluster                                                                                                                                                              
+0              1.025485         0.980108          1.013737         0.994574          1.026715  42.735048  0.067829     0.274682  -1.677692              0.0 -2.279586
+1              0.747285         1.030693          1.067774         1.015675          1.035352  62.046712  0.058724     0.748241   5.518012              0.0  3.040362
+2              3.461965         0.890192          0.802814         0.923537          0.908537  41.329831  0.250766     0.435849 -23.175389              0.0 -7.200005
+
+Market Regime Return Statistics:
+                         mean       std  count    sharpe
+market_regime                                           
+Crisis/Bear         -0.135356  3.777720     54 -0.035830
+Strong Bull          0.189845  0.699045   1581  0.271578
+Transition/Rotation -0.198875  1.129180    871 -0.176124

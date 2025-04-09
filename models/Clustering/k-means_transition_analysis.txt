@@ -1,0 +1,11 @@
+K-Means Regime Frequency:
+Strong Bull: 1380 days (55.07%)
+Transition/Rotation: 1098 days (43.81%)
+Crisis/Bear: 28 days (1.12%)
+
+Regime Duration Statistics (days):
+                          mean  median  min  max  count
+regime                                                 
+Crisis/Bear          28.000000    28.0   28   28      1
+Strong Bull          14.838710     6.0    1   72     93
+Transition/Rotation  11.680851     4.0    1   97     94

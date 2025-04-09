@@ -1,0 +1,11 @@
+GMM Regime Frequency:
+Strong Bull: 1581 days (63.09%)
+Transition/Rotation: 871 days (34.76%)
+Crisis/Bear: 54 days (2.15%)
+
+Regime Duration Statistics (days):
+                          mean  median  min  max  count
+regime                                                 
+Crisis/Bear          54.000000    54.0   54   54      1
+Strong Bull          15.500000     7.5    1  120    102
+Transition/Rotation   8.623762     4.0    1   78    101
