@@ -1,0 +1,127 @@
+2025-04-08 06:43:12,662 - INFO - Loading NIFTY data...
+2025-04-08 06:43:12,670 - INFO - Data loaded with shape: (2506, 5)
+2025-04-08 06:43:12,670 - INFO - Engineering features for clustering analysis...
+2025-04-08 06:43:12,685 - WARNING - NaN values found in columns after calculations: ['return', 'log_return', 'volatility_5d', 'volatility_20d', 'volatility_50d', 'sma_5', 'close_to_sma_5', 'sma_20', 'close_to_sma_20', 'sma_50', 'close_to_sma_50', 'sma_200', 'close_to_sma_200', 'sma_5_20_ratio', 'sma_20_50_ratio', 'sma_50_200_ratio', 'bb_middle', 'bb_std', 'bb_width', 'bb_position', 'trend_20d', 'trend_50d', 'volume_change', 'volume_ma_ratio', 'roc_5d', 'roc_20d', 'roc_50d']
+2025-04-08 06:43:12,688 - WARNING - NaN counts: return                 1
+log_return             1
+volatility_5d          5
+volatility_20d        20
+volatility_50d        50
+sma_5                  4
+close_to_sma_5         4
+sma_20                19
+close_to_sma_20       19
+sma_50                49
+close_to_sma_50       49
+sma_200              199
+close_to_sma_200     199
+sma_5_20_ratio        19
+sma_20_50_ratio       49
+sma_50_200_ratio     199
+bb_middle             19
+bb_std                19
+bb_width              19
+bb_position           19
+trend_20d             20
+trend_50d             50
+volume_change       2506
+volume_ma_ratio     2506
+roc_5d                 5
+roc_20d               20
+roc_50d               50
+dtype: int64
+/home/azureuser/nse-forecasting/nifty_clustering.py:139: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
+  df_features = df_features.fillna(method="ffill").fillna(method="bfill")
+2025-04-08 06:43:12,711 - INFO - Feature engineering complete. Final shape: (2506, 33)
+2025-04-08 06:43:12,711 - INFO - Selecting features for clustering...
+2025-04-08 06:43:12,711 - INFO - Selected 11 features for clustering: ['volatility_20d', 'close_to_sma_50', 'close_to_sma_200', 'sma_20_50_ratio', 'sma_50_200_ratio', 'rsi_14', 'bb_width', 'bb_position', 'trend_50d', 'volume_ma_ratio', 'roc_20d']
+2025-04-08 06:43:12,712 - INFO - Normalizing features...
+2025-04-08 06:43:12,714 - INFO - Reducing dimensions with PCA to 2 components...
+2025-04-08 06:43:12,715 - INFO - Explained variance: [0.55830452 0.19038887]
+2025-04-08 06:43:12,715 - INFO - Total explained variance: 0.7487
+2025-04-08 06:43:12,715 - INFO - Determining optimal number of clusters...
+2025-04-08 06:43:13,947 - INFO - Clusters: 2, Silhouette: 0.3292, Calinski-Harabasz: 1180.3431, Inertia: 17031.5953
+2025-04-08 06:43:15,197 - INFO - Clusters: 3, Silhouette: 0.3286, Calinski-Harabasz: 1206.1818, Inertia: 12761.0973
+2025-04-08 06:43:16,429 - INFO - Clusters: 4, Silhouette: 0.2230, Calinski-Harabasz: 1061.8090, Inertia: 11024.3709
+2025-04-08 06:43:17,684 - INFO - Clusters: 5, Silhouette: 0.2436, Calinski-Harabasz: 1008.9583, Inertia: 9587.9850
+2025-04-08 06:43:18,935 - INFO - Clusters: 6, Silhouette: 0.2482, Calinski-Harabasz: 945.3463, Inertia: 8669.2027
+2025-04-08 06:43:20,193 - INFO - Clusters: 7, Silhouette: 0.2444, Calinski-Harabasz: 916.8641, Inertia: 7827.9368
+2025-04-08 06:43:21,434 - INFO - Clusters: 8, Silhouette: 0.2552, Calinski-Harabasz: 907.1727, Inertia: 7074.9259
+2025-04-08 06:43:22,704 - INFO - Clusters: 9, Silhouette: 0.2427, Calinski-Harabasz: 879.8734, Inertia: 6561.9656
+2025-04-08 06:43:23,959 - INFO - Clusters: 10, Silhouette: 0.2338, Calinski-Harabasz: 842.4735, Inertia: 6206.4525
+2025-04-08 06:43:24,346 - INFO - Optimal clusters based on Silhouette score: 2
+2025-04-08 06:43:24,347 - INFO - Optimal clusters based on Calinski-Harabasz score: 3
+2025-04-08 06:43:24,347 - INFO - Using 3 clusters for interpretability
+2025-04-08 06:43:24,347 - INFO - Performing K-Means clustering with 3 clusters...
+2025-04-08 06:43:25,519 - INFO - Performing GMM clustering with 3 components...
+2025-04-08 06:43:27,201 - INFO - Visualizing K-Means clusters in 2D...
+2025-04-08 06:43:27,472 - INFO - Visualizing GMM clusters in 2D...
+2025-04-08 06:43:27,708 - INFO - Visualizing GMM cluster probabilities...
+2025-04-08 06:43:28,036 - INFO - Analyzing K-Means clusters...
+2025-04-08 06:43:28,063 - INFO - 
+K-Means Cluster Statistics:
+         volatility_20d  close_to_sma_50  ...  volume_ma_ratio    roc_20d
+cluster                                   ...                            
+0              0.984086         0.981650  ...              0.0  -1.870873
+1              0.766040         1.036806  ...              0.0   3.593352
+2              4.426454         0.808114  ...              0.0 -16.861228
+
+[3 rows x 11 columns]
+2025-04-08 06:43:28,308 - INFO - 
+K-Means Market Regime Mapping:
+{0: 'Transition/Rotation', 1: 'Strong Bull', 2: 'Crisis/Bear'}
+2025-04-08 06:43:28,321 - INFO - 
+K-Means Market Regime Return Statistics:
+                         mean       std  count    sharpe
+market_regime                                           
+Crisis/Bear         -0.359768  4.823925     28 -0.074580
+Strong Bull          0.206555  0.748776   1380  0.275857
+Transition/Rotation -0.141490  1.064995   1098 -0.132855
+2025-04-08 06:43:28,324 - INFO - Analyzing GMM clusters...
+2025-04-08 06:43:28,334 - INFO - 
+GMM Cluster Statistics:
+         volatility_20d  close_to_sma_50  ...  volume_ma_ratio   roc_20d
+cluster                                   ...                           
+0              1.025485         0.980108  ...              0.0 -2.279586
+1              0.747285         1.030693  ...              0.0  3.040362
+2              3.461965         0.890192  ...              0.0 -7.200005
+
+[3 rows x 11 columns]
+2025-04-08 06:43:28,596 - INFO - 
+GMM Market Regime Mapping:
+{0: 'Transition/Rotation', 1: 'Strong Bull', 2: 'Crisis/Bear'}
+2025-04-08 06:43:28,602 - INFO - 
+GMM Market Regime Return Statistics:
+                         mean       std  count    sharpe
+market_regime                                           
+Crisis/Bear         -0.135356  3.777720     54 -0.035830
+Strong Bull          0.189845  0.699045   1581  0.271578
+Transition/Rotation -0.198875  1.129180    871 -0.176124
+2025-04-08 06:43:28,606 - INFO - Visualizing K-Means market regimes over time...
+2025-04-08 06:43:29,414 - INFO - Visualizing GMM market regimes over time...
+2025-04-08 06:43:30,299 - INFO - Analyzing K-Means regime transitions...
+2025-04-08 06:43:30,320 - INFO - 
+K-Means Regime Duration Statistics (days):
+                          mean  median  min  max  count
+regime                                                 
+Crisis/Bear          28.000000    28.0   28   28      1
+Strong Bull          14.838710     6.0    1   72     93
+Transition/Rotation  11.680851     4.0    1   97     94
+2025-04-08 06:43:30,321 - INFO - Analyzing GMM regime transitions...
+2025-04-08 06:43:30,327 - INFO - 
+GMM Regime Duration Statistics (days):
+                          mean  median  min  max  count
+regime                                                 
+Crisis/Bear          54.000000    54.0   54   54      1
+Strong Bull          15.500000     7.5    1  120    102
+Transition/Rotation   8.623762     4.0    1   78    101
+2025-04-08 06:43:30,328 - INFO - Comparing clustering methods...
+2025-04-08 06:43:30,335 - INFO - 
+Clustering Method Comparison:
+GMM Regime           Crisis/Bear  Strong Bull  Transition/Rotation
+KMeans Regime                                                     
+Crisis/Bear                   28            0                    0
+Strong Bull                    1         1304                   75
+Transition/Rotation           25          277                  796
+2025-04-08 06:43:30,512 - INFO - Agreement between clustering methods: 84.92%
+2025-04-08 06:43:30,512 - INFO - Clustering analysis completed successfully
